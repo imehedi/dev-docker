@@ -16,3 +16,8 @@ RUN yum update -y && \
         zip zlib zlib-devel && \
      yum clean all && \
      rm -rf /var/cache/yum
+
+WORKDIR /work
+COPY requirements.txt ./
+
+RUN python3.8 -m pip install --upgrade pip setuptools wheel -r requirements.txt
